@@ -1,5 +1,5 @@
 # Copyright 2015 Adafruit Industries.
-# Author: Tony DiCola
+# Author: Tony DiCola, G.Berger
 # License: GNU GPLv2, see LICENSE.txt
 import random
 
@@ -37,3 +37,14 @@ class Playlist(object):
     def length(self):
         """Return the number of movies in the playlist."""
         return len(self._movies)
+
+    def get_at_index(self, idx):
+        """Return the movie at a given index if exists"""
+        if len(self.movies) == 0:
+            return None
+
+        try:
+            movie = self._movies[idx]
+            return movie
+        except IndexError:
+            return None
